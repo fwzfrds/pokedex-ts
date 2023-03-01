@@ -30,7 +30,7 @@ const Main = () => {
         if (value === 1) {
             fetchPokemons(0, 20)
         } else {
-            fetchPokemons(value * 10, 20)
+            fetchPokemons(((value - 1) * 20), 20)
         }
     };
 
