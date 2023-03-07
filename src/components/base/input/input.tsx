@@ -3,7 +3,7 @@ import { TextField } from '@mui/material';
 
 type InputProps = {
     value?: string
-    type?: 'number' | 'text' | 'date' | 'password'
+    type?: 'number' | 'text' | 'date' | 'password' | 'email'
     variant?: 'standard' | 'outlined' | 'filled'
     size?: 'small'
     inputProps?: {}
@@ -13,14 +13,17 @@ type InputProps = {
     className?: string
     id?: string
     sx?: {}
-    placeholder: string
+    label?: string
+    placeholder?: string
+    name?: string
     handleChange: (event: React.ChangeEvent<HTMLInputElement>) => void
 }
 
-const Input = ({ className, id, value, type, variant, size, inputProps, handleChange, error, validationText, styles, sx, placeholder }: InputProps) => {
+const Input = ({ className, id, value, type, variant, size, inputProps, handleChange, error, validationText, styles, sx, placeholder, label, name }: InputProps) => {
     return (
         <TextField
             id={id}
+            name={name}
             className={className}
             InputProps={inputProps}
             type={type}
@@ -33,6 +36,7 @@ const Input = ({ className, id, value, type, variant, size, inputProps, handleCh
             style={styles}
             sx={sx}
             placeholder={placeholder}
+            label={label}
         />
     )
 }

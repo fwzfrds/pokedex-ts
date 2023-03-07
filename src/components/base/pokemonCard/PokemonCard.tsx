@@ -31,7 +31,7 @@ type PokemonCardProps = {
 const PokemonCard = ({ pokemonDetail }: PokemonCardProps) => {
 
     const navigate = useNavigate()
-    const { data, loading } = usePalette(pokemonDetail.sprites.other.home.front_default, 2, 'hex', { crossOrigin: 'anonymous' })
+    const { data: palette, loading } = usePalette(pokemonDetail.sprites.other.home.front_default, 2, 'hex', { crossOrigin: 'anonymous' })
 
     const handleClick = (): void => {
         navigate('/pokemon-detail')
@@ -45,7 +45,7 @@ const PokemonCard = ({ pokemonDetail }: PokemonCardProps) => {
                 <Card
                     className={styles.card}
                     style={{
-                        background: loading ? '' : `linear-gradient(90deg, ${hexToRgba(data[0])} 0%, ${hexToRgba(data[1])} 100%)`
+                        background: loading ? '' : `linear-gradient(90deg, ${hexToRgba(palette[0])} 0%, ${hexToRgba(palette[1])} 100%)`
                     }}
                     onClick={() => handleClick()}
                 >

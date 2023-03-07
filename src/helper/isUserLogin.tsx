@@ -6,16 +6,17 @@ type AuthUserProps = {
     children: React.ReactNode
 }
 
-const AuthUser = ({ children }: AuthUserProps) => {
+const IsUserLogin = ({ children }: AuthUserProps) => {
     const isAuth: string | null = localStorage.getItem('pokeAccessToken')
-    if (!isAuth) {
+
+    if (isAuth) {
         swal({
             title: "Good job!",
-            text: `Access Denied, Please Login!`,
+            text: `Anda Sudah Login!`,
             icon: "error",
         });
         return (
-            <Navigate to="/login" replace />
+            <Navigate to={'/'} replace />
         )
     } else {
         return (
@@ -26,4 +27,4 @@ const AuthUser = ({ children }: AuthUserProps) => {
     }
 }
 
-export default AuthUser
+export default IsUserLogin

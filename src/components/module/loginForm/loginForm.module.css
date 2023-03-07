@@ -1,0 +1,37 @@
+.formContainer {
+    max-width: 300px;
+    padding: 30px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    border-radius: 10px;
+    background-color: #fff;
+    position: relative;
+    z-index: 2;
+}
+
+.formHeader {
+    margin-bottom: 1rem;
+}
+
+.formLogo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 1.5rem !important;
+}
+
+.input {
+    width: 100%;
+    margin-bottom: 1rem !important;
+}
+
+.forgotPassword {
+    font-size: 14px !important;
+    text-align: right;
+    cursor: pointer;
+}
+
+.buttonLogin {
+    color: #fff !important;
+    width: 100%;
+    margin-top: 1rem !important;
+}

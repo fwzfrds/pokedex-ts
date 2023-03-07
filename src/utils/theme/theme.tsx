@@ -8,7 +8,7 @@ const base = createTheme({
         },
         text: {
             primary: '#000',
-            secondary: '#FFF',
+            secondary: 'gray'
         },
         secondary: {
             main: purple[500],
@@ -18,6 +18,9 @@ const base = createTheme({
         },
         success: {
             main: green[500]
+        },
+        common: {
+            black: '#000'
         }
     },
 });
