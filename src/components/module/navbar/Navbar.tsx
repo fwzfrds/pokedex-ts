@@ -9,8 +9,34 @@ import { Grid, InputAdornment } from '@mui/material';
 import Input from '../../base/input/input';
 import SearchIcon from '@mui/icons-material/Search';
 import css from './navbar.module.css'
+import Drawer from '@mui/material/Drawer';
+import { DrawerMenu } from '../drawerMenu/drawerMenu'
+
+type Anchor = 'top' | 'left' | 'bottom' | 'right';
 
 export default function Navbar() {
+
+    const [state, setState] = React.useState({
+        top: false,
+        left: false,
+        bottom: false,
+        right: false,
+    });
+
+    const toggleDrawer =
+        (anchor: Anchor, open: boolean) =>
+            (event: React.KeyboardEvent | React.MouseEvent) => {
+                if (
+                    event.type === 'keydown' &&
+                    ((event as React.KeyboardEvent).key === 'Tab' ||
+                        (event as React.KeyboardEvent).key === 'Shift')
+                ) {
+                    return;
+                }
+
+                setState({ ...state, [anchor]: open });
+            };
+
     return (
         <Box sx={{ flexGrow: 1 }}>
             <AppBar position="sticky">
@@ -20,19 +46,20 @@ export default function Navbar() {
                         component="div"
                         sx={{
                             flexGrow: 1,
-                            color: 'text.secondary',
+                            color: 'common.white',
                             fontWeight: 600
                         }}
                     >
                         PokeDex
                     </Typography>
                     <ButtonComp
-                        handleClick={() => console.log('test')}
+                        onClick={toggleDrawer('right', true)}
                         styles={{
                             color: '#FFF'
                         }}
                     >
-                        <MenuIcon />
+                        <MenuIcon
+                        />
                     </ButtonComp>
                 </Toolbar>
                 <Grid
@@ -59,6 +86,14 @@ export default function Navbar() {
                     />
                 </Grid>
             </AppBar>
+
+            <Drawer
+                anchor={'right'}
+                open={state['right']}
+                onClose={toggleDrawer('right', false)}
+            >
+                <DrawerMenu />
+            </Drawer>
         </Box>
     );
 }

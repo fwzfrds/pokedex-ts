@@ -57,7 +57,7 @@ const PokemonCard = ({ pokemonDetail }: PokemonCardProps) => {
                             variant="subtitle2"
                             component="div"
                             className={styles.pokemonIdx}
-                            color='text.secondary'
+                            color='common.white'
                         >
                             #{pokemonDetail.id}
                         </Typography>
@@ -66,7 +66,7 @@ const PokemonCard = ({ pokemonDetail }: PokemonCardProps) => {
                             variant="subtitle1"
                             component="div"
                             className={styles.pokemonName}
-                            color='text.secondary'
+                            color='common.white'
                         >
                             {pokemonDetail.name}
                         </Typography>
@@ -80,7 +80,7 @@ const PokemonCard = ({ pokemonDetail }: PokemonCardProps) => {
                                         color="success"
                                         key={idx}
                                         sx={{
-                                            color: 'text.secondary'
+                                            color: 'common.white'
                                         }}
                                     />
                                 )

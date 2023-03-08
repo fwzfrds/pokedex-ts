@@ -2,7 +2,7 @@ import React from 'react'
 import Button from '@mui/material/Button';
 
 type ButtonProps = {
-    handleClick: (e: React.MouseEvent<HTMLButtonElement>) => void
+    onClick: (e: React.MouseEvent<HTMLButtonElement>) => void
     styles?: React.CSSProperties
     children: string | number | React.ReactNode
     className?: string
@@ -12,12 +12,12 @@ type ButtonProps = {
     variant?: 'text' | 'outlined' | 'contained'
 } & React.ComponentProps<'button'>
 
-const ButtonComp = ({ styles, handleClick, children, className, form, type, disabled, variant }: ButtonProps) => {
+const ButtonComp = ({ styles, onClick, children, className, form, type, disabled, variant }: ButtonProps) => {
 
     return (
         <Button
             style={styles}
-            onClick={(e) => handleClick(e)}
+            onClick={(e) => onClick(e)}
             className={className}
             form={form}
             type={type}

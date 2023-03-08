@@ -49,7 +49,7 @@ const LoginForm = () => {
         }
     }
 
-    const handleLogin = async () => {
+    const handleLogin = async (): Promise<void> => {
         setLoading(true)
 
         let errorDataForms: Errors = { email: '', password: '' }
@@ -80,7 +80,7 @@ const LoginForm = () => {
                 timer: 2000
             });
 
-            setLoading(false)
+            fetchProfile(res.data.access_token)
             setTimeout(() => {
                 navigate('/')
             }, 2000)
@@ -94,6 +94,14 @@ const LoginForm = () => {
                 timer: 2000
             });
         }
+    }
+
+    const fetchProfile = async (token: string): Promise<void> => {
+        const res: any = await userDetail(token)
+
+        localStorage.setItem('dexUser', JSON.stringify(res.data))
+
+        setLoading(false)
     }
 
     return (
@@ -150,7 +158,7 @@ const LoginForm = () => {
             </Typography>
             <ButtonComp
                 variant="contained"
-                handleClick={() => handleLogin()}
+                onClick={() => handleLogin()}
                 className={styles.buttonLogin}
                 disabled={loading}
             >

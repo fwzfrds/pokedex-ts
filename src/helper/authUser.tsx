@@ -10,7 +10,7 @@ const AuthUser = ({ children }: AuthUserProps) => {
     const isAuth: string | null = localStorage.getItem('pokeAccessToken')
     if (!isAuth) {
         swal({
-            title: "Good job!",
+            title: "Warning",
             text: `Access Denied, Please Login!`,
             icon: "error",
         });

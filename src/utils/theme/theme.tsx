@@ -20,7 +20,7 @@ const base = createTheme({
             main: green[500]
         },
         common: {
-            black: '#000'
+            white: '#FFF'
         }
     },
 });
